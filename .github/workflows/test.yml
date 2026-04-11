@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate action.yml
+        run: |
+          python3 -c "import yaml; yaml.safe_load(open('action.yml'))"
+
+      - name: Validate audit.js syntax
+        run: node --check audit.js
+
+      - name: Dry-run audit script (no PR context)
+        run: |
+          npm install -g @whitehatd/crag
+          node audit.js
+        env:
+          INPUT_FAIL_ON_DRIFT: 'false'

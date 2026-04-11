@@ -1,0 +1,36 @@
+name: 'crag audit'
+description: 'Detect AI config drift in your repo — posts a PR comment with the drift report'
+author: 'Alexandru Cioc (WhitehatD)'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  fail-on-drift:
+    description: 'Fail the check if drift is detected'
+    default: 'false'
+  crag-version:
+    description: 'crag version to install (e.g., 0.5.2 or latest)'
+    default: 'latest'
+  token:
+    description: 'GitHub token for posting PR comments'
+    default: ${{ github.token }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install crag
+      shell: bash
+      run: npm install -g @whitehatd/crag@${{ inputs.crag-version }}
+
+    - name: Run audit
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        INPUT_FAIL_ON_DRIFT: ${{ inputs.fail-on-drift }}
+      run: node ${{ github.action_path }}/audit.js
