@@ -88,7 +88,7 @@ on:
       - 'CLAUDE.md'
       - 'AGENTS.md'
       - 'GEMINI.md'
-      - '.cursorrules'
+      - '.cursor/rules/governance.mdc'
       - '.cursor/**'
       - '.github/copilot-instructions.md'
       - '.clinerules'
@@ -154,7 +154,7 @@ Or audit any repo online at [crag.sh/audit](https://crag.sh/audit).
 
 ## About crag
 
-[crag](https://github.com/WhitehatD/crag) makes every AI agent obey your codebase. One `governance.md` compiled to 13 AI tool formats (CLAUDE.md, AGENTS.md, .cursorrules, Copilot instructions, and more). Deterministic, no LLM, zero dependencies.
+[crag](https://github.com/WhitehatD/crag) makes every AI agent obey your codebase. One `governance.md` compiled to 14 AI tool formats (CLAUDE.md, AGENTS.md, .cursor/rules/, Copilot instructions, and more). Deterministic, no LLM, zero dependencies.
 
 - [Website](https://crag.sh)
 - [Web audit tool](https://crag.sh/audit)
