@@ -1,10 +1,10 @@
 # crag-audit-action
 
-Detect AI config drift on every pull request. Posts a comment showing stale configs, phantom gates, and missing targets.
+Detect AI config drift on every pull request. Posts a comment showing stale configs, phantom gates, and missing targets. When a memory backend is configured, the audit also carries the claim-health axis — flagging distilled governance rules whose source principles have gone stale.
 
 [![GitHub Marketplace](https://img.shields.io/badge/Marketplace-crag--audit-blue?logo=github)](https://github.com/marketplace/actions/crag-audit)
 ![crag audit](https://img.shields.io/badge/crag-audit-22d3ee)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
 
 Works with any repo that has CI workflows. No config or setup required.
 
@@ -154,14 +154,16 @@ Or audit any repo online at [crag.sh/audit](https://crag.sh/audit).
 
 ## About crag
 
-[crag](https://github.com/WhitehatD/crag) makes every AI agent obey your codebase. One `governance.md` compiled to 14 AI tool formats (CLAUDE.md, AGENTS.md, .cursor/rules/, Copilot instructions, and more). Deterministic, no LLM, zero dependencies.
+[crag](https://github.com/WhitehatD/crag) is the reliability layer for AI coding agents. One `governance.md` compiled to 23 AI tool formats (CLAUDE.md, AGENTS.md, .cursor/rules/, Copilot instructions, and more). The compiler is deterministic, no LLM, zero dependencies. An opt-in verified-memory engine ([crag-engine](https://github.com/WhitehatD/crag-engine)) grounds an agent's learned claims against reality and distills the verified ones into enforced governance rules — the same claim-health axis this action surfaces in CI when a backend is configured.
 
 - [Website](https://crag.sh)
 - [Web audit tool](https://crag.sh/audit)
 - [Drift leaderboard](https://crag.sh/leaderboard)
+- [crag-engine](https://github.com/WhitehatD/crag-engine)
+- [Cloud console](https://app.crag.sh)
 - [npm](https://www.npmjs.com/package/@whitehatd/crag)
 - [GitHub](https://github.com/WhitehatD/crag)
 
 ## License
 
-MIT -- [Alexandru Cioc (WhitehatD)](https://github.com/WhitehatD)
+Apache-2.0 -- [Alexandru Cioc (WhitehatD)](https://github.com/WhitehatD)
